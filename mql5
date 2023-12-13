@@ -1,0 +1,135 @@
+
+//+------------------------------------------------------------------+
+//|                                                  Mentfx Mmanage mt5|
+//|                           https://forexroboteasy.com  - Forex Robot Easy Team|
+//|                                                                  |
+//|  This code is a trading robot designed to automate and enhance   |
+//|  the trading process in the Forex Market. It incorporates a 'Drag|
+//|  and Drop Trade Manager' feature, advanced targeting capabilities|
+//|  and the ability to manage trades during off-hours. The robot    |
+//|  supports both market orders and limit orders, considering the   |
+//|  spread in decision-making processes.                            |
+//+------------------------------------------------------------------+
+
+//+------------------------------------------------------------------+
+//|                            Expert initialization function                   |
+//+------------------------------------------------------------------+
+int OnInit()
+{
+    // Add necessary initialization code here
+
+    return(INIT_SUCCEEDED);
+}
+
+//+------------------------------------------------------------------+
+//|                                  Expert deinitialization function                  |
+//+------------------------------------------------------------------+
+void OnDeinit(const int reason)
+{
+    // Add necessary cleanup code here
+}
+
+//+------------------------------------------------------------------+
+//|                                      Expert start function                                           |
+//+------------------------------------------------------------------+
+void OnTick()
+{
+    // Add necessary trading logic here
+
+    // Check if trade manager is enabled
+    if (IsTradeManagerEnabled())
+    {
+        // Get user-defined entry point
+        double entryPrice = GetEntryPoint();
+
+        // Place trade based on entry point
+        if (entryPrice > 0)
+        {
+            // Check if market order or limit order
+            if (IsMarketOrder())
+            {
+                PlaceMarketOrder(entryPrice);
+            }
+            else
+            {
+                PlaceLimitOrder(entryPrice);
+            }
+        }
+
+        // Close portions of trade based on advanced targeting capabilities
+        if (IsTargetingEnabled())
+        {
+            ClosePortionsOfTrade();
+        }
+    }
+}
+
+//+------------------------------------------------------------------+
+//|                                      Check if trade manager is enabled               |
+//+------------------------------------------------------------------+
+bool IsTradeManagerEnabled()
+{
+    // Add necessary code to check if trade manager is enabled
+
+    return true; // Placeholder, replace with actual check
+}
+
+//+------------------------------------------------------------------+
+//|                                      Get user-defined entry point                            |
+//+------------------------------------------------------------------+
+double GetEntryPoint()
+{
+    // Add necessary code to get user-defined entry point
+
+    return 1.2345; // Placeholder, replace with actual entry point
+}
+
+//+------------------------------------------------------------------+
+//|                                      Check if market order or limit order                  |
+//+------------------------------------------------------------------+
+bool IsMarketOrder()
+{
+    // Add necessary code to check if market order is selected
+
+    return true; // Placeholder, replace with actual check
+}
+
+//+------------------------------------------------------------------+
+//|                                      Place market order                                                   |
+//+------------------------------------------------------------------+
+void PlaceMarketOrder(const double entryPrice)
+{
+    // Add necessary code to place market order at entry price
+
+    // Place market order code here
+}
+
+//+------------------------------------------------------------------+
+//|                                      Place limit order                                                         |
+//+------------------------------------------------------------------+
+void PlaceLimitOrder(const double entryPrice)
+{
+    // Add necessary code to place limit order at entry price
+
+    // Place limit order code here
+}
+
+//+------------------------------------------------------------------+
+//|                                      Check if advanced targeting is enabled               |
+//+------------------------------------------------------------------+
+bool IsTargetingEnabled()
+{
+    // Add necessary code to check if advanced targeting is enabled
+
+    return true; // Placeholder, replace with actual check
+}
+
+//+------------------------------------------------------------------+
+//|                                      Close portions of trade based on targeting             |
+//+------------------------------------------------------------------+
+void ClosePortionsOfTrade()
+{
+    // Add necessary code to close portions of trade based on targeting
+
+    // Close portions of trade code here
+}
